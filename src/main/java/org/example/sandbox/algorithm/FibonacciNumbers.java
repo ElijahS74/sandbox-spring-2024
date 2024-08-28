@@ -5,36 +5,28 @@ import java.util.Map;
 
 public class FibonacciNumbers {
 
-    private Map<Integer, Long> dictionary;
+    public static void main(String[] args) {
+        FibonacciNumbers fn = new FibonacciNumbers();
 
-    public FibonacciNumbers() {
-        this.dictionary = new HashMap<>();
+        for (int n =0; n <= 92; n++){
+            System.out.println("fib(" + n + ") - " + (fn.fib(n)));
+        }
     }
-
-    public long fib(int n) {
-
-        if(n == 0) {
-            return 0;
+    public long fib(int x) {
+        //f0 = 0
+        if(x == 0) {
+            return 0L;
+        }
+        //f1 = 1
+        if (x == 1) {
+            return 1L;
         }
 
-        if (n == 1) {
-            return 1;
-        }
-
-        return memo(n-1) + memo(n - 2);
+        return fib(x-1) + fib(x - 2);
     }
-
-    private long memo(int m) {
-
+public long memo (int m) {
         Long value = dictionary.get(m);
+}
 
-        if (value != null) {
-            return value;
-        }
-
-        value = fib(m);
-        dictionary.put(Integer.valueOf(m), value);
-        return value;
-    }
 
 }
